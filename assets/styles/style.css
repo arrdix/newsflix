@@ -64,7 +64,7 @@ hr {
   margin: 0;
   border: 0;
   height: 1px;
-  width: 1500px;
+  width: 100%;
   background-image: linear-gradient(to right, rgba(0, 0, 0, -1), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
 i {
@@ -122,7 +122,7 @@ main {
   top: 0;
   width: 1400px;
   height: 520px;
-  background-color: #E5E4E2;
+  background-color: var(--base-bg);
   z-index: -1;
 }
 .headline-grid {
@@ -356,4 +356,113 @@ main {
   border: 1px solid var(--base-color);
   color: var(--base-color);
   cursor: pointer;
+}
+
+/* if screen width less than 800px */
+@media screen and (max-width: 800px) {
+  h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0;
+  }
+  h4 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin: 0;
+  }
+  p {
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin: 0;
+  }
+  hr {
+    margin: 0;
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, -1), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  }
+  main {
+    max-width: 650px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+  }
+  .headline-bg {
+    position: absolute;
+    top: 0;
+    width: 550px;
+    height: 520px;
+    background-color: var(--base-bg);
+    z-index: -1;
+  }
+  .content-container {
+    width: 100%;
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-inline: 2.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    overflow: hidden;
+  }
+  .main-news {
+    width: 100%;
+    height: 300px;
+  }
+  .main-news-img {
+    width: 100%;
+    height: 100%;
+  }
+  .main-news h2 {
+    line-height: 2rem;
+  }
+  .aside-content {
+    background-color: var(--base-bg);
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+  }
+  .aside-news img {
+    width: 100px;
+    height: 100px;
+  }
+  .footer-container {
+    margin-block: 2rem;
+    padding-inline: 1rem;
+
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+  .footer-logo {
+    text-align: center;
+  }
+  .subscription {
+    width: 400px;
+    text-align: center;
+  }
+  .subscription-title {
+    font-size: 1.2rem;
+  }
+  .subscribe-container {
+    margin-bottom: 2rem;
+  }
+  .subscribe-button {
+    padding-block: 1rem;
+  }
 }
