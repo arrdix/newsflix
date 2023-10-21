@@ -1,3 +1,5 @@
+import './nav.js'
+
 function main() {
   console.log('testis');
 }
