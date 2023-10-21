@@ -41,6 +41,13 @@ p {
   font-weight: 400;
   margin: 0;
 }
+hr {
+  margin: 0;
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, -1), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
 header {
   margin-top: 2rem;
 
@@ -50,7 +57,8 @@ header {
 }
 .nav-header {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 5rem;
   
   align-items: center;
   margin-bottom: 2rem;
@@ -58,15 +66,72 @@ header {
 .logo img {
   width: 200px;
 }
-hr {
-  margin: 0;
-  border: 0;
-  height: 1px;
-  width: 100%;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, -1), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
-}
 i {
   cursor: pointer;
+}
+.share-button-container {
+  flex-basis: 20%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+.share-button {
+  font-size: 1.4rem;
+}
+.sosmed-logos {
+  opacity: 0;
+  margin-left: 0.5rem;
+  font-size: 1.6rem;
+  transition: padding-right, opacity, 0.3s ease-in-out;
+}
+.sosmed-logos a {
+  color: var(--base-color);
+  text-decoration: none;
+}
+.search-button {
+  font-size: 1.2rem;
+}
+.search-button-container {
+  flex-basis: 20%;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav-form {
+  opacity: 0;
+  margin-right: 0.5rem;
+  transition: padding-right, opacity, 0.3s ease-in-out;
+  margin: 0;
+}
+.nav-search {
+  padding: 0.5rem;
+  border: 1px solid var(--base-color);
+}
+.nav-button {
+  padding: 0.5rem;
+  border: 1px solid var(--base-color);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: var(--base-color);
+  color: var(--base-white);
+  margin-left: -10px;
+}
+.nav-button:hover {
+  background-color: var(--base-white);
+  color: var(--base-color);
+  cursor: pointer;
+}
+.share-button-container:hover .sosmed-logos {
+  opacity: 1;
+  margin-left: 1.5rem;
+}
+.search-button-container:hover .nav-form {
+  opacity: 1;
+  margin-right: 1rem;
 }
 .nav-bar {
   text-transform: capitalize;

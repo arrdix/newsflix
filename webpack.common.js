@@ -4,8 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
   output: {
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
   },
   mode: 'development',
   module:{
@@ -21,23 +21,21 @@ module.exports = {
           }
         ]
       },
-      // {
-      //   test: /\.(png|jpe?g|gif|svg)%/i/,
-      //   use: [
-      //     {
-      //       loader: 'file-loader',
-      //       options: {
-      //         name: './assets/img/[name].[ext]'
-      //       }
-      //     }
-      //   ]
-      // }
-    ]
+      {
+        test: /\.html$/,
+        use: ['html-loader']
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: 'index.html'
-    })
-  ]
+    }),
+  ],
+  devServer: {
+    port: 3000,
+    hot: false,
+    liveReload: true,
+  },
 }

@@ -9,20 +9,29 @@
 <body>
   <header>
     <div class="nav-header">
-      <div class="share-button">
-        <span><i class="fa fa-share-alt" aria-hidden="true"></i></span>
+      <div class="share-button-container">
+        <i class="share-button fa fa-share-alt" aria-hidden="true"></i>
+        <div class="sosmed-logos">
+          <a href=""><i class="sosmed-logo fa-brands fa-instagram"></i></a>
+          <a href=""><i class="sosmed-logo fa-brands fa-instagram"></i></a>
+          <a href=""><i class="sosmed-logo fa-brands fa-instagram"></i></a>
+        </div>
       </div>
       <div class="logo">
         <img src="../assets/img/logo-full.png" alt="">
       </div>
-      <div class="search-button">
-        <span><i class="fa fa-search" aria-hidden="true"></i></span>
+      <div class="search-button-container">
+        <form class="nav-form" action="">
+          <input class="nav-search nav-search" type="text" placeholder="Search">
+          <input class="nav-search nav-button" type="button" value="Search">
+        </form>
+        <i class="search-button fa fa-search" aria-hidden="true"></i>
       </div>
     </div>
     <hr>
     <nav class="nav-bar">
       <a href="">home</a>
-      <a class="selected" href="">palestine-israel war</a>
+      <a class="selected" href="">Israel-Palestine War</a>
       <a href="">world</a>
       <!-- <a href="">bussiness</a>
       <a href="">tech</a>
@@ -161,6 +170,5 @@
       </div>
     </footer>
   </main>
-  <script src="../dist/bundle.js"></script>
 </body>
 </html>
