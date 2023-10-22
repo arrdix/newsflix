@@ -18,10 +18,10 @@ export class GetNews {
       return respose.json();
     })
     .then(responseJson => {
-      if (responseJson.articles.length < 4) {
-        return Promise.reject(`Can't find headline news related to ${this.keyword}`);
-      } else {
+      if (responseJson.status === 'success') {
         return Promise.resolve(responseJson.articles);
+      } else {
+        return Promise.reject(responseJson.message);
       }
     })
   }
