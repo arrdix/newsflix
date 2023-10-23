@@ -134,8 +134,6 @@ i {
   margin-right: 1rem;
 }
 .nav-bar {
-  text-transform: capitalize;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,24 +141,24 @@ i {
 .nav-bar span {
   margin-top: 1rem;
 }
-.nav-bar a {
+.nav-item {
   padding: 1rem;
   padding-inline: 1.5rem;
   border: 1px solid transparent;
   
   font-weight: 700;
-  text-decoration: none;
+  text-transform: capitalize;
   color: var(--base-color);
   transition: all .3s ease-in-out;
 }
-.nav-bar a:hover {
+.nav-item:hover {
   border-left: 1px solid var(--base-white);
   border-right: 1px solid var(--base-white);
   background-color: var(--base-color);
   color: var(--base-white);
   transition: all .3s ease-in-out;
 }
-.nav-bar .selected {
+#selected {
   background-color: var(--base-color);
   color: var(--base-white);
 }
@@ -189,6 +187,11 @@ main {
   z-index: -1;
 }
 .headline-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -453,6 +456,11 @@ main {
     width: 1100px;
     height: 420px;
   }
+  .grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .grid-item {
     position: relative;
     width: 300px;
@@ -539,6 +547,11 @@ main {
     .headline-bg {
       width: 950px;
       height: 365px;
+    }
+    .grid-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .grid-item {
       position: relative;
