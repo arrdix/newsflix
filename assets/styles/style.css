@@ -350,6 +350,7 @@ main {
 .aside-news-detail {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 1rem;
 }
 .aside-news img {
