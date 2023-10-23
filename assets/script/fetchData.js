@@ -18,7 +18,7 @@ export class GetNews {
       return respose.json();
     })
     .then(responseJson => {
-      if (responseJson.status === 'success') {
+      if (responseJson.status === 'ok') {
         return Promise.resolve(responseJson.articles);
       } else {
         return Promise.reject(responseJson.message);
