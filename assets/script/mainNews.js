@@ -1,4 +1,5 @@
 import { GetNews } from './fetchData.js';
+import readNews from './readNews.js';
 
 class MainNews extends HTMLElement {
   constructor() {
@@ -13,6 +14,7 @@ class MainNews extends HTMLElement {
   render() {
     this.innerHTML = `
       <img class="main-news-img" src="${this._newsItem.urlToImage}" alt="${this._newsItem.title}">
+      <span><h4>${this._newsItem.source.name}</h4></span>
       <h2><a href="#">${this._newsItem.title}</a></h2>
     `;
   }
@@ -28,7 +30,7 @@ function homeMainNews() {
 }
 
 function gazaMainNews() {
-  const gazaMainNews = new GetNews('https://newsapi.org/v2/everything?langauge=en&searchin=title&pageSize=2&q=', 'gaza');
+  const gazaMainNews = new GetNews('https://newsapi.org/v2/everything?langauge=en&searchin=title&pageSize=2&q=gaza&sources=', 'al-jazeera-english');
   gazaMainNews.fetchData()
     .then(render)
     .catch(responseMessage);
@@ -42,20 +44,21 @@ function worldMainNews() {
 }
 
 function render(items) {
-  const mainContentElement = document.querySelector('.main-content');
-  mainContentElement.innerHTML = '';
-
   items.forEach(item => {
     const mainNewsElement = document.createElement('main-news');
     mainNewsElement.setAttribute('class', 'main-news');
     mainNewsElement.newsItem = item;
 
-    mainContentElement.append(mainNewsElement);
+    document.querySelector('.main-content').append(mainNewsElement);
+
+    mainNewsElement.addEventListener('click', () => {
+      readNews(item);
+    })
   })
 }
 
 function responseMessage(message) {
-  alert(`Error: ${message}`);
+  alert(`Error main: ${message}`);
 }
 
 export { homeMainNews, gazaMainNews, worldMainNews };

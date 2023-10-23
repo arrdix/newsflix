@@ -1,4 +1,5 @@
 import { GetNews } from './fetchData.js';
+import readNews from './readNews.js';
 
 class HeadlineNews extends HTMLElement {
   constructor() {
@@ -43,21 +44,22 @@ function worldHeadline() {
     .catch(responseMessage);
 }
 
-function responseMessage(message) {
-  alert(`Error: ${message}`);
-}
-
 function render(items) {
-  const gridContainerElement = document.querySelector('.grid-container');
-  gridContainerElement.innerHTML = "";
-
   items.forEach(item => {
     const headlineElement = document.createElement('headline-item');
     headlineElement.setAttribute('class', 'grid-item');
     headlineElement.newsItem = item;
 
-    gridContainerElement.append(headlineElement);
+    document.querySelector('.grid-container').append(headlineElement);
+
+    headlineElement.addEventListener('click', () => {
+      readNews(item);
+    })
   })
+}
+
+function responseMessage(message) {
+  alert(`Error headline: ${message}`);
 }
 
 export { homeHeadline, gazaHeadline, worldHeadline };

@@ -1,4 +1,5 @@
 import { GetNews } from './fetchData.js';
+import readNews from './readNews.js';
 
 class AsideNews extends HTMLElement {
   constructor() {
@@ -41,7 +42,7 @@ function homeAsideNews() {
 }
 
 function gazaAsideNews() {
-  const gazaAsideNews = new GetNews('https://newsapi.org/v2/everything?langauge=en&pageSize=8&page=2&q=', 'gaza');
+  const gazaAsideNews = new GetNews('https://newsapi.org/v2/everything?langauge=en&pageSize=8&page=2&q=gaza&sources=', 'al-jazeera-english');
   gazaAsideNews.fetchData()
     .then(render)
     .catch(responseMessage);
@@ -55,20 +56,22 @@ function worldAsideNews() {
 }
 
 function render(items) {
-  const asideNewsContainerElement = document.querySelector('.aside-news-container');
-  asideNewsContainerElement.innerHTML = "";
-
   items.forEach(item => {
     const asideNewsElement = document.createElement('aside-news');
     asideNewsElement.setAttribute('class', 'aside-news');
     asideNewsElement.newsItem = item;
 
-    asideNewsContainerElement.append(asideNewsElement);
+    document.querySelector('.aside-news-container').append(asideNewsElement);
+
+    asideNewsElement.addEventListener('click', event => {
+      event.preventDefault();
+      readNews(item);
+    })
   })
 }
 
 function responseMessage(message) {
-  alert(`Error: ${message}`);
+  alert(`Error aside: ${message}`);
 }
 
 export { homeAsideNews, gazaAsideNews, worldAsideNews };
