@@ -30,7 +30,7 @@ searchButton.addEventListener('click', () => {
         <img src="${item.urlToImage}" alt="">
         <div class="search-detail">
           <div class="search-head">
-            <h4>${item.title}</h4>
+            <h3>${item.title}</h3>
             <p>By: ${item.author} on ${newsMonth} ${newsDay}, ${newsYear}</p>
           </div>
           <div class="search-body">
