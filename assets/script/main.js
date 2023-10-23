@@ -1,6 +1,7 @@
 import { homeHeadline, gazaHeadline, worldHeadline } from '../script/headlineNews.js';
 import { homeMainNews, gazaMainNews, worldMainNews } from '../script/mainNews.js';
 import { homeAsideNews, gazaAsideNews, worldAsideNews } from '../script/asideNews.js';
+import './searchNews.js';
 
 function main() {
   const navItem = document.getElementsByClassName('nav-item');

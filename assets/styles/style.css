@@ -548,6 +548,48 @@ main {
       width: 950px;
       height: 365px;
     }
+    .search-container {
+      margin-top: 3rem;
+      padding-inline: 6rem;
+    }
+    .search-item {
+      margin-bottom: 2rem;
+
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+    .search-container img {
+      width: 50%;
+      height: 40%;
+      filter: grayscale(200%) contrast(150%) brightness(50%);
+    }
+    .search-detail {
+      margin-block: 1rem;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .search-head h3 {
+      margin-bottom: 0.5rem;
+      line-height: 1.5rem;
+    }
+    .search-body a {
+      color: #0091ff;
+      text-decoration: none;
+    }
+    .search-body a:hover {
+      border-bottom: 1px solid #0091ff;
+    }
+    .search-footer a {
+      color: #0091ff;
+      text-decoration: none;
+    }
+    .search-footer a:hover {
+      border-bottom: 1px solid #0091ff;
+    }
     .grid-container {
       display: flex;
       justify-content: center;
