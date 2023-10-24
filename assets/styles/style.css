@@ -418,6 +418,9 @@ main {
   position: relative;
   overflow: hidden;
 }
+.main-news:hover {
+  cursor: pointer;
+}
 .main-news:hover .main-news-img {
   transform: scale(1.02);
   transition: all .5s ease-in-out;
@@ -526,6 +529,7 @@ main {
 .subscription-title {
   color: var(--base-color);
   font-weight: 700;
+  font-size: 1.5rem;
 }
 .subscription-desc {
   color: var(--base-color);
@@ -606,6 +610,9 @@ main {
     height: 350px;
     overflow: hidden;
   }
+  .grid-item:hover {
+    cursor: pointer;
+  }
   .grid-item h3 {
     line-height: 1.8rem;
   }
@@ -660,6 +667,9 @@ main {
   }
   .subscription {
     flex-basis: 30%;
+  }
+  .subscription-title {
+    font-size: 1.2rem;
   }
 }
 
