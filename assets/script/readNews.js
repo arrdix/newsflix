@@ -24,7 +24,15 @@ function readNews(item) {
           <p>${item.content}</p>
         </div>
         <div class="content-footer">
-          <p>Source:<a href="${item.url}"> ${item.source.name}</a></p>
+          <p>Source:<a class="source-link" href="${item.url}"> ${item.source.name}</a></p>
+          <div>
+            <a href=""><i class="modal-sosmed-logo fa-brands fa-instagram"></i></a>
+            <a href=""><i class="modal-sosmed-logo fa-brands fa-telegram"></i></a>
+            <a href=""><i class="modal-sosmed-logo fa-brands fa-square-facebook"></i></a>
+            <a href=""><i class="modal-sosmed-logo fa-brands fa-square-x-twitter"></i></a>
+            <a href=""><i class="modal-sosmed-logo fa-brands fa-telegram"></i></a>
+            <a href=""><i class="modal-sosmed-logo fa-brands fa-whatsapp"></i></a>
+          </div>
         </div>
       </div>
     </div>

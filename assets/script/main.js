@@ -6,9 +6,9 @@ import './wrapper.js';
 import createWrapper from './wrapper.js';
 
 function main() {
-  const navItem = document.getElementsByClassName('nav-item');
+  const navbarButton = document.getElementsByClassName('nav-bar-button');
 
-  for (let item of navItem) {
+  for (let item of navbarButton) {
     item.addEventListener('click', () => {
       removeId();
       item.setAttribute('id', 'selected');
@@ -24,9 +24,7 @@ function main() {
   }
 
   function removeId() {
-    const navItem = document.querySelectorAll('.nav-item');
-
-    for (let item of navItem) {
+    for (let item of navbarButton) {
       item.removeAttribute('id');
     }
   }
@@ -52,6 +50,26 @@ function main() {
         break;
     }
   }
+
+  document.querySelector('.search-button').addEventListener('click', () => {
+    const navForm = document.querySelector('.nav-form');
+
+    if (navForm.classList.value === 'nav-form') {
+      navForm.setAttribute('class', 'nav-form show-nav-form');
+    } else if (navForm.classList.value === 'nav-form show-nav-form') {
+      navForm.setAttribute('class', 'nav-form');
+    }
+  })
+
+  document.querySelector('.share-button').addEventListener('click', () => {
+    const sosmedLogos = document.querySelector('.sosmed-logos');
+
+    if (sosmedLogos.classList.value === 'sosmed-logos') {
+      sosmedLogos.setAttribute('class', 'sosmed-logos show-sosmed-logos');
+    } else if (sosmedLogos.classList.value === 'sosmed-logos show-sosmed-logos') {
+      sosmedLogos.setAttribute('class', 'sosmed-logos');
+    }
+  })
 }
 
 export default main;

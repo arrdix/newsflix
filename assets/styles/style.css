@@ -85,16 +85,18 @@ i {
   opacity: 0;
   margin-left: 0;
   font-size: 1.2rem;
-  transition: padding-right, opacity, 0.3s ease-in-out;
+  transition: opacity, 0.3s ease-in-out;
+  z-index: -1;
+}
+.show-sosmed-logos {
+  opacity: 1;
+  margin-left: 1.5rem;
+  z-index: 1;
 }
 .sosmed-logos a {
   color: var(--base-color);
   text-decoration: none;
   margin-right: 5px;
-}
-.share-button-container:hover .sosmed-logos {
-  opacity: 1;
-  margin-left: 1.5rem;
 }
 .search-button {
   font-size: 1.2rem;
@@ -110,12 +112,13 @@ i {
 .nav-form {
   opacity: 0;
   margin-right: 0;
-  transition: padding-right, opacity, 0.3s ease-in-out;
-  margin: 0;
+  transition: opacity, 0.3s ease-in-out;
+  z-index: -1;
 }
-.search-button-container:hover .nav-form {
+.show-nav-form {
   opacity: 1;
   margin-right: 1.5rem;
+  z-index: 1;
 }
 .nav-search {
   padding: 0.5rem;
@@ -143,7 +146,7 @@ i {
 .nav-bar span {
   margin-top: 1rem;
 }
-.nav-item {
+.nav-bar-button {
   padding: 1rem;
   padding-inline: 1.5rem;
   border: 1px solid transparent;
@@ -153,7 +156,7 @@ i {
   color: var(--base-color);
   transition: all .3s ease-in-out;
 }
-.nav-item:hover {
+.nav-bar-button:hover {
   border-left: 1px solid var(--base-white);
   border-right: 1px solid var(--base-white);
   background-color: var(--base-color);
@@ -239,12 +242,24 @@ main {
   padding-block: 1rem;
   padding-inline: 0.5rem;
 }
-.content-footer a {
+.content-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+.source-link {
   color: #0091ff;
   text-decoration: none;
 }
-.content-footer a:hover {
+.source-link:hover {
   border-bottom: 1px solid #0091ff;
+}
+.modal-sosmed-logo {
+  font-size: 1.2rem;
+  color: var(--base-color);
+  text-decoration: none;
+  margin-right: 5px;
 }
 .search-container {
   margin-top: 3rem;

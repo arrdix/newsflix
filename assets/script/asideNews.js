@@ -35,21 +35,21 @@ class AsideNews extends HTMLElement {
 customElements.define('aside-news', AsideNews);
 
 function homeAsideNews() {
-  const homeAsideNews = new GetNews('https://newsapi.org/v2/everything?langauge=en&pageSize=8&page=2&sources=', 'the-washington-post');
+  const homeAsideNews = new GetNews('https://newsapi.org/v2/everything?langauge=en&pageSize=7&page=2&sources=', 'the-washington-post');
   homeAsideNews.fetchData()
     .then(render)
     .catch(responseMessage);
 }
 
 function gazaAsideNews() {
-  const gazaAsideNews = new GetNews('https://newsapi.org/v2/everything?langauge=en&pageSize=8&page=2&q=gaza&sources=', 'al-jazeera-english');
+  const gazaAsideNews = new GetNews('https://newsapi.org/v2/everything?langauge=en&pageSize=7&page=2&q=gaza&sources=', 'al-jazeera-english');
   gazaAsideNews.fetchData()
     .then(render)
     .catch(responseMessage);
 }
 
 function worldAsideNews() {
-  const worldAsideNews = new GetNews('https://newsapi.org/v2/everything?langauge=en&pageSize=8&page=2&sources=', 'new-york-magazine');
+  const worldAsideNews = new GetNews('https://newsapi.org/v2/everything?langauge=en&pageSize=7&page=2&sources=', 'new-york-magazine');
   worldAsideNews.fetchData()
     .then(render)
     .catch(responseMessage);
