@@ -1,6 +1,6 @@
-import { homeHeadline, gazaHeadline, worldHeadline } from '../script/headlineNews.js';
-import { homeMainNews, gazaMainNews, worldMainNews } from '../script/mainNews.js';
-import { homeAsideNews, gazaAsideNews, worldAsideNews } from '../script/asideNews.js';
+import { homeHeadline, gazaHeadline, worldHeadline, businessHeadline, entertainmentHeadline, scienceHeadline, sportsHeadline, techHeadline } from '../script/headlineNews.js';
+import { homeMainNews, gazaMainNews, worldMainNews, businessMainNews, entertainmentMainNews, scienceMainNews, sportsMainNews, techMainNews } from '../script/mainNews.js';
+import { homeAsideNews, gazaAsideNews, worldAsideNews, businessAsideNews, entertainmentAsideNews, scienceAsideNews, sportsAsideNews, techAsideNews } from '../script/asideNews.js';
 import './searchNews.js';
 import './wrapper.js';
 import createWrapper from './wrapper.js';
@@ -47,6 +47,36 @@ function main() {
         worldHeadline();
         worldMainNews();
         worldAsideNews();
+        break;
+
+      case 'business':
+        businessHeadline();
+        businessMainNews();
+        businessAsideNews();
+        break;
+
+      case 'entertainment':
+        entertainmentHeadline();
+        entertainmentMainNews();
+        entertainmentAsideNews();
+        break;
+
+      case 'science':
+        scienceHeadline();
+        scienceMainNews()
+        scienceAsideNews();
+        break;
+
+      case 'sports':
+        sportsHeadline();
+        sportsMainNews();
+        sportsAsideNews();
+        break;
+
+      case 'technology':
+        techHeadline();
+        techMainNews();
+        techAsideNews();
         break;
     }
   }

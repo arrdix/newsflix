@@ -26,23 +26,58 @@ class HeadlineNews extends HTMLElement {
 
 customElements.define('headline-item', HeadlineNews);
 
-function homeHeadline() {
+export function homeHeadline() {
   const homeHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=8&sources=', 'the-washington-post');
   homeHeadline.fetchData()
     .then(saveHeadlineNewsItems)
     .catch(responseMessage);
 }
 
-function gazaHeadline() {
+export function gazaHeadline() {
   const gazaHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=8&q=', 'gaza');
   gazaHeadline.fetchData()
     .then(saveHeadlineNewsItems)
     .catch(responseMessage);
 }
 
-function worldHeadline() {
+export function worldHeadline() {
   const worldHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=8&sources=', 'new-york-magazine');
   worldHeadline.fetchData()
+    .then(saveHeadlineNewsItems)
+    .catch(responseMessage);
+}
+
+export function businessHeadline() {
+  const businessHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=8&q=', 'business');
+  businessHeadline.fetchData()
+    .then(saveHeadlineNewsItems)
+    .catch(responseMessage);
+}
+
+export function entertainmentHeadline() {
+  const entertainmentHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=8&q=', 'entertainment');
+  entertainmentHeadline.fetchData()
+    .then(saveHeadlineNewsItems)
+    .catch(responseMessage);
+}
+
+export function scienceHeadline() {
+  const scienceHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=8&q=', 'science');
+  scienceHeadline.fetchData()
+    .then(saveHeadlineNewsItems)
+    .catch(responseMessage);
+}
+
+export function sportsHeadline() {
+  const sportsHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=8&q=', 'sports');
+  sportsHeadline.fetchData()
+    .then(saveHeadlineNewsItems)
+    .catch(responseMessage);
+}
+
+export function techHeadline() {
+  const techHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=8&q=', 'technology');
+  techHeadline.fetchData()
     .then(saveHeadlineNewsItems)
     .catch(responseMessage);
 }
@@ -90,7 +125,6 @@ function render(items) {
 
   document.querySelector('.grid-arrow-left').addEventListener('click', slideLeft);
   document.querySelector('.grid-arrow-right').addEventListener('click', slideRight);
-  console.log(headlineNewsItems);
 }
 
 function slideLeft() {
@@ -116,5 +150,3 @@ function slideRight() {
 
   toRender(); 
 }
-
-export { homeHeadline, gazaHeadline, worldHeadline };
