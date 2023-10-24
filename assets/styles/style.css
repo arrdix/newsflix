@@ -825,6 +825,37 @@ main {
     display: flex;
     flex-direction: column;
   }
+  .nav-header {
+    margin-bottom: 1rem;
+
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .search-button-container {
+    flex-basis: 100%;
+  }
+  .nav-form {
+    opacity: 1;
+    width: 100%;
+  }
+  .nav-search {
+    width: 250px;
+  }
+  .nav-button {
+    border-radius: 0px;
+  }
+  .search-button-container:hover .nav-form {
+    margin-right: 0;
+  }
+  .search-button {
+    visibility: hidden;
+    position: absolute;
+  }
+  .share-button-container {
+    position: absolute;
+    visibility: hidden;
+  }
   .modal-container {
     display: flex;
     justify-content: center;
@@ -996,8 +1027,20 @@ main {
   }
   .subscribe-container {
     margin-bottom: 2rem;
+    justify-content: center;
   }
   .subscribe-button {
     padding-block: 1rem;
+  }
+  .subscribe-form {
+    padding-block: 0;
+    padding-inline: 1rem;
+    width: 50%;
+    height: 40px;
+  }
+  .subscribe-button {
+    padding-block: 0;
+    padding-inline: 1.5rem;
+    height: 40px;
   }
 }
