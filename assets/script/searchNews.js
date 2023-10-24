@@ -15,7 +15,7 @@ searchButton.addEventListener('click', () => {
     const mainElement = document.querySelector('main');
     const searchContainer = document.createElement('div');
 
-    clearPage();
+    mainElement.innerHTML = ``;
     searchContainer.setAttribute('class', 'search-container');
     mainElement.append(searchContainer);
 
@@ -32,7 +32,7 @@ searchButton.addEventListener('click', () => {
         <div class="search-detail">
           <div class="search-head">
             <h3>${item.title}</h3>
-            <p>By: ${item.author} on ${itemMonth}${itemDay}, ${itemYear}</p>
+            <p>By: ${item.author} on ${itemMonth} ${itemDay}, ${itemYear}</p>
           </div>
           <div class="search-body">
             <p>${item.description}<a class="read-more" href=""> (Read More)</a></span></p>
@@ -54,15 +54,5 @@ searchButton.addEventListener('click', () => {
 
   function responseMessage(message) {
   alert(`Error search: ${message}`);
-  }
-
-  function clearPage() {
-    const gridContainerElement = document.querySelector('.grid-container');
-    const mainContentElement = document.querySelector('.main-content');
-    const asideNewsContainerElement = document.querySelector('.aside-news-container');
-
-    gridContainerElement.innerHTML = "";
-    mainContentElement.innerHTML = '';
-    asideNewsContainerElement.innerHTML = "";
   }
 })
