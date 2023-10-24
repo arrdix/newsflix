@@ -83,13 +83,18 @@ i {
 }
 .sosmed-logos {
   opacity: 0;
-  margin-left: 0.5rem;
-  font-size: 1.6rem;
+  margin-left: 0;
+  font-size: 1.2rem;
   transition: padding-right, opacity, 0.3s ease-in-out;
 }
 .sosmed-logos a {
   color: var(--base-color);
   text-decoration: none;
+  margin-right: 5px;
+}
+.share-button-container:hover .sosmed-logos {
+  opacity: 1;
+  margin-left: 1.5rem;
 }
 .search-button {
   font-size: 1.2rem;
@@ -104,9 +109,13 @@ i {
 }
 .nav-form {
   opacity: 0;
-  margin-right: 0.5rem;
+  margin-right: 0;
   transition: padding-right, opacity, 0.3s ease-in-out;
   margin: 0;
+}
+.search-button-container:hover .nav-form {
+  opacity: 1;
+  margin-right: 1.5rem;
 }
 .nav-search {
   padding: 0.5rem;
@@ -125,14 +134,6 @@ i {
   background-color: var(--base-white);
   color: var(--base-color);
   cursor: pointer;
-}
-.share-button-container:hover .sosmed-logos {
-  opacity: 1;
-  margin-left: 1.5rem;
-}
-.search-button-container:hover .nav-form {
-  opacity: 1;
-  margin-right: 1rem;
 }
 .nav-bar {
   display: flex;
@@ -598,6 +599,15 @@ main {
     font-weight: 400;
     margin: 0;
   }
+  .share-button-container {
+    flex-basis: 25%;
+  }
+  .search-button-container {
+    flex-basis: 25%;
+  }
+  .nav-search {
+    width: 175px;
+  }
   .headline-grid {
     width: 1200px;
   }
@@ -709,6 +719,15 @@ main {
     font-size: 0.8rem;
     font-weight: 400;
     margin: 0;
+  }
+  .share-button-container {
+    flex-basis: 25%;
+  }
+  .search-button-container {
+    flex-basis: 25%;
+  }
+  .nav-search {
+    width: 150px;
   }
   .headline-grid {
     width: 1200px;
