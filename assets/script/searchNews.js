@@ -2,8 +2,16 @@ import { GetNews } from "./fetchData";
 import readNews from './readNews.js';
 
 const searchButton = document.querySelector('.nav-button');
+const searchForm = document.querySelector('.nav-search');
 
-searchButton.addEventListener('click', () => {
+searchButton.addEventListener('click', searchNews);
+searchForm.addEventListener('keypress', event => {
+  if (event.key === 'Enter') {
+    searchNews();
+  }
+})
+
+function searchNews() {
   const searchValue = `${document.querySelector('.nav-search').value}`;
 
   const searchNews = new GetNews('https://newsapi.org/v2/everything?langauge=en&searchin=title&pageSize=5&q=', searchValue);
@@ -35,7 +43,7 @@ searchButton.addEventListener('click', () => {
             <p>By: ${item.author} on ${itemMonth} ${itemDay}, ${itemYear}</p>
           </div>
           <div class="search-body">
-            <p>${item.description}<a class="read-more" href=""> (Read More)</a></span></p>
+            <p>${item.description}<a class="read-more" href=""> (Read More)</a></p>
           </div>
           <div class="search-footer">
             <p>Source: ${item.source.name}</p>
@@ -55,4 +63,4 @@ searchButton.addEventListener('click', () => {
   function responseMessage(message) {
   alert(`Error search: ${message}`);
   }
-})
+}

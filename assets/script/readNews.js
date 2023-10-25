@@ -6,6 +6,8 @@ function readNews(item) {
   const itemYear = itemDate.getFullYear();
   const itemMonth = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(itemDate);
   const itemDay = itemDate.getDate();
+  const itemContent = item.content;
+  const itemContentTrimmed = itemContent.substring(0, itemContent.lastIndexOf(' ['));
 
   modalContainerElement.setAttribute('class', 'modal-container');
   modalContainerElement.innerHTML = `
@@ -21,7 +23,7 @@ function readNews(item) {
           <p>By: ${item.author} on ${itemMonth} ${itemDay}, ${itemYear}</p>
         </div>
         <div class="content-body">
-          <p>${item.content}</p>
+          <p>${itemContentTrimmed}<a class="read-more" href="${item.url}"> (Read More)</a></p>
         </div>
         <div class="content-footer">
           <p>Source:<a class="source-link" href="${item.url}"> ${item.source.name}</a></p>

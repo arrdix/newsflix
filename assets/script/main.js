@@ -1,30 +1,30 @@
 import { homeHeadline, gazaHeadline, worldHeadline, businessHeadline, entertainmentHeadline, scienceHeadline, sportsHeadline, techHeadline } from '../script/headlineNews.js';
 import { homeMainNews, gazaMainNews, worldMainNews, businessMainNews, entertainmentMainNews, scienceMainNews, sportsMainNews, techMainNews } from '../script/mainNews.js';
 import { homeAsideNews, gazaAsideNews, worldAsideNews, businessAsideNews, entertainmentAsideNews, scienceAsideNews, sportsAsideNews, techAsideNews } from '../script/asideNews.js';
+import createWrapper from './wrapper.js';
 import './searchNews.js';
 import './wrapper.js';
-import createWrapper from './wrapper.js';
 
 function main() {
-  const navbarButton = document.getElementsByClassName('nav-bar-button');
+  const navbarButtons = document.getElementsByClassName('nav-bar-button');
 
-  for (let item of navbarButton) {
-    item.addEventListener('click', () => {
+  for (let button of navbarButtons) {
+    button.addEventListener('click', () => {
       removeId();
-      item.setAttribute('id', 'selected');
+      button.setAttribute('id', 'selected');
 
       createWrapper();
-      findNews(item.textContent);
+      findNews(button.textContent);
     })
 
-    if (item.id) {
+    if (button.id) {
       createWrapper();
-      findNews(item.textContent);
+      findNews(button.textContent);
     }
   }
 
   function removeId() {
-    for (let item of navbarButton) {
+    for (let item of navbarButtons) {
       item.removeAttribute('id');
     }
   }
@@ -80,6 +80,12 @@ function main() {
         break;
     }
   }
+
+  document.querySelector('.bars-icon').addEventListener('click', () => {
+   for (let button of navbarButtons) {
+        button.classList.toggle('hide-nav-bar-button');
+      }
+  })
 
   document.querySelector('.search-button').addEventListener('click', () => {
     const navForm = document.querySelector('.nav-form');

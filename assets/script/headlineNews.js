@@ -27,56 +27,56 @@ class HeadlineNews extends HTMLElement {
 customElements.define('headline-item', HeadlineNews);
 
 export function homeHeadline() {
-  const homeHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=8&sources=', 'the-washington-post');
+  const homeHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=20&sources=', 'the-washington-post');
   homeHeadline.fetchData()
     .then(saveHeadlineNewsItems)
     .catch(responseMessage);
 }
 
 export function gazaHeadline() {
-  const gazaHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=8&q=', 'gaza');
+  const gazaHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=20&q=', 'gaza');
   gazaHeadline.fetchData()
     .then(saveHeadlineNewsItems)
     .catch(responseMessage);
 }
 
 export function worldHeadline() {
-  const worldHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=8&sources=', 'new-york-magazine');
+  const worldHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=20&sources=', 'new-york-magazine');
   worldHeadline.fetchData()
     .then(saveHeadlineNewsItems)
     .catch(responseMessage);
 }
 
 export function businessHeadline() {
-  const businessHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=8&q=', 'business');
+  const businessHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=20&q=', 'business');
   businessHeadline.fetchData()
     .then(saveHeadlineNewsItems)
     .catch(responseMessage);
 }
 
 export function entertainmentHeadline() {
-  const entertainmentHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=8&q=', 'entertainment');
+  const entertainmentHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=20&q=', 'entertainment');
   entertainmentHeadline.fetchData()
     .then(saveHeadlineNewsItems)
     .catch(responseMessage);
 }
 
 export function scienceHeadline() {
-  const scienceHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=8&q=', 'science');
+  const scienceHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=20&q=', 'science');
   scienceHeadline.fetchData()
     .then(saveHeadlineNewsItems)
     .catch(responseMessage);
 }
 
 export function sportsHeadline() {
-  const sportsHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=8&q=', 'sports');
+  const sportsHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=20&q=', 'sports');
   sportsHeadline.fetchData()
     .then(saveHeadlineNewsItems)
     .catch(responseMessage);
 }
 
 export function techHeadline() {
-  const techHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=8&q=', 'technology');
+  const techHeadline = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=20&q=', 'technology');
   techHeadline.fetchData()
     .then(saveHeadlineNewsItems)
     .catch(responseMessage);
@@ -92,7 +92,10 @@ function saveHeadlineNewsItems(items) {
   }
 
   items.forEach(item => {
-    headlineNewsItems.push(item);
+    if (item.title.length <= 50 && item.urlToImage !== null) {
+      console.log(item);
+      headlineNewsItems.push(item);
+    }
   })
 
   toRender();
