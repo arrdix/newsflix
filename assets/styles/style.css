@@ -6,6 +6,7 @@
   --base-bg: #E5E4E2;
   --base-dark-grey: #dbdbdb;
   --base-darker-grey: #3d3d3d;
+  --base-link: #0091ff;
 }
 *, *::before, *::after {
   box-sizing: border-box;
@@ -146,6 +147,9 @@ i {
 .nav-bar span {
   margin-top: 1rem;
 }
+.bars-icon {
+  display: none;
+}
 .nav-bar-button {
   padding: 1rem;
   padding-inline: 1.5rem;
@@ -249,11 +253,11 @@ main {
   gap: 2px;
 }
 .source-link {
-  color: #0091ff;
+  color: var(--base-link);
   text-decoration: none;
 }
 .source-link:hover {
-  border-bottom: 1px solid #0091ff;
+  border-bottom: 1px solid var(--base-link);
 }
 .modal-sosmed-logo {
   font-size: 1.2rem;
@@ -289,19 +293,19 @@ main {
   margin-bottom: 1rem;
   line-height: 2rem;
 }
-.search-body a {
-  color: #0091ff;
+.read-more {
+  color: var(--base-link);
   text-decoration: none;
 }
-.search-body a:hover {
-  border-bottom: 1px solid #0091ff;
+.read-more:hover {
+  border-bottom: 1px solid var(--base-link);
 }
 .search-footer a {
-  color: #0091ff;
+  color: var(--base-link);
   text-decoration: none;
 }
 .search-footer a:hover {
-  border-bottom: 1px solid #0091ff;
+  border-bottom: 1px solid var(--base-link);
 }
 .headline-container {
   position: relative;
@@ -849,19 +853,39 @@ main {
   }
   .search-button-container {
     flex-basis: 100%;
+    visibility: visible;
+    margin-right: 0;
+  }
+  .search-button-container:hover .nav-form {
+    margin-right: 0;
   }
   .nav-form {
     opacity: 1;
     width: 100%;
+    z-index: 1;
   }
   .nav-search {
     width: 250px;
   }
+  .nav-bar {
+    flex-direction: column;
+    z-index: 1;
+  }
+  .bars-icon {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .nav-bar-button {
+    width: 350px;
+  }
+  .hide-nav-bar-button {
+    display: none;
+  }
   .nav-button {
     border-radius: 0px;
-  }
-  .search-button-container:hover .nav-form {
-    margin-right: 0;
   }
   .search-button {
     visibility: hidden;
@@ -903,13 +927,14 @@ main {
     gap: 1rem;
   }
   .content-header h2 {
-    line-height: 1.5rem;
-    font-size: 1.5rem;
+    line-height: 1.1rem;
+    font-size: 1.1rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
   .search-container {
     margin-top: 2rem;
+    padding-inline: 2rem;
   }
   .search-item {
     margin-bottom: 1rem;
@@ -924,9 +949,9 @@ main {
     margin-inline: 0.5rem;
   }
   .search-head h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 0.5rem;
-    line-height: 1.2rem;
+    line-height: 1.1rem;
   }
   .headline-container {
     padding-top: 2rem;
