@@ -22,60 +22,30 @@ class MainNews extends HTMLElement {
 
 customElements.define('main-news', MainNews);
 
-export function homeMainNews() {
-  const homeMainNews = new GetNews('https://newsapi.org/v2/everything?langauge=en&searchin=title&pageSize=2&sources=', 'the-washington-post');
-  homeMainNews.fetchData()
-    .then(render)
-    .catch(responseMessage);
-}
+const mainNewsBaseUrl = 'https://newsapi.org/v2/everything?' +
+                        'langauge=en&' +
+                        'sortBy=popularity&' +
+                        'searchin=title,content,description&' +
+                        'pageSize=2&' +
+                        'page=2&';
 
-export function gazaMainNews() {
-  const gazaMainNews = new GetNews('https://newsapi.org/v2/everything?langauge=en&searchin=title&pageSize=2&q=gaza&sources=', 'al-jazeera-english');
-  gazaMainNews.fetchData()
-    .then(render)
-    .catch(responseMessage);
-}
-
-export function worldMainNews() {
-  const worldMainNews = new GetNews('https://newsapi.org/v2/everything?langauge=en&searchin=title&pageSize=2&sources=', 'new-york-magazine');
-  worldMainNews.fetchData()
-    .then(render)
-    .catch(responseMessage);
-}
-
-export function businessMainNews() {
-  const businessMainNews = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=2&q=', 'business');
-  businessMainNews.fetchData()
-    .then(render)
-    .catch(responseMessage);
-}
-
-export function entertainmentMainNews() {
-  const entertainmentMainNews = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=2&q=', 'entertainment');
-  entertainmentMainNews.fetchData()
-    .then(render)
-    .catch(responseMessage);
-}
-
-export function scienceMainNews() {
-  const scienceMainNews = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=2&q=', 'science');
-  scienceMainNews.fetchData()
-    .then(render)
-    .catch(responseMessage);
-}
-
-export function sportsMainNews() {
-  const sportsMainNews = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=2&q=', 'sports');
-  sportsMainNews.fetchData()
-    .then(render)
-    .catch(responseMessage);
-}
-
-export function techMainNews() {
-  const techMainNews = new GetNews('https://newsapi.org/v2/everything?langauge=en&sortBy=popularity&searchin=title,content,description&pageSize=2&q=', 'technology');
-  techMainNews.fetchData()
-    .then(render)
-    .catch(responseMessage);
+export function mainNewsHandler(keyword) {
+  if (keyword === 'home') {
+    const fetchMainNews = new GetNews(`${mainNewsBaseUrl}sources=`, 'the-washington-post');
+    fetchMainNews.fetchData()
+      .then(render)
+      .catch(responseMessage);
+  } else if (keyword === 'israel-palestine war') {
+    const fetchMainNews = new GetNews(`${mainNewsBaseUrl}q=`, 'gaza');
+    fetchMainNews.fetchData()
+      .then(render)
+      .catch(responseMessage);
+  } else {
+    const fetchMainNews = new GetNews(`${mainNewsBaseUrl}q=`, `${keyword}`);
+    fetchMainNews.fetchData()
+      .then(render)
+      .catch(responseMessage);
+  }
 }
 
 function render(items) {
