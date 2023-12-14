@@ -17,7 +17,7 @@ class HeadlineNews extends HTMLElement {
       <h3>
         <a href="#">${this._newsItem.title}</a>
       </h3>
-    `
+    `;
   }
 }
 
@@ -26,28 +26,23 @@ customElements.define('headline-item', HeadlineNews);
 let headlineNewsItems = [];
 let toRenderIndex = [0, 1, 2, 3];
 
-const headlineBaseUrl = 'https://newsapi.org/v2/everything?' +
-                        'langauge=en&' +
-                        'sortBy=popularity&' +
-                        'searchin=title,content,description&' +
-                        'pageSize=20&';
+const headlineBaseUrl =
+  'https://newsapi.org/v2/everything?' +
+  'langauge=en&' +
+  'sortBy=popularity&' +
+  'searchin=title,content,description&' +
+  'pageSize=20&';
 
 export function headlineHandler(keyword) {
   if (keyword === 'home') {
     const fetchHeadlineNews = new GetNews(`${headlineBaseUrl}sources=`, 'the-washington-post');
-    fetchHeadlineNews.fetchData()
-      .then(saveHeadlineNewsItems)
-      .catch(responseMessage);
+    fetchHeadlineNews.fetchData().then(saveHeadlineNewsItems).catch(responseMessage);
   } else if (keyword === 'israel-palestine war') {
     const fetchHeadlineNews = new GetNews(`${headlineBaseUrl}q=`, 'gaza');
-    fetchHeadlineNews.fetchData()
-      .then(saveHeadlineNewsItems)
-      .catch(responseMessage);
+    fetchHeadlineNews.fetchData().then(saveHeadlineNewsItems).catch(responseMessage);
   } else {
     const fetchHeadlineNews = new GetNews(`${headlineBaseUrl}q=`, `${keyword}`);
-    fetchHeadlineNews.fetchData()
-      .then(saveHeadlineNewsItems)
-      .catch(responseMessage);
+    fetchHeadlineNews.fetchData().then(saveHeadlineNewsItems).catch(responseMessage);
   }
 }
 
@@ -60,21 +55,22 @@ function saveHeadlineNewsItems(items) {
     headlineNewsItems = [];
   }
 
-  items.forEach(item => {
-    if (item.title.length <= 50 && item.urlToImage !== null) {
+  items.forEach((item) => {
+    if (item.urlToImage !== null) {
+      console.log('x');
       headlineNewsItems.push(item);
     }
-  })
+  });
 
   toRender();
 }
 
 function toRender() {
   let toRender = [];
-  toRenderIndex.forEach(index => {
+  toRenderIndex.forEach((index) => {
     toRender.push(headlineNewsItems[index]);
-  })
-  
+  });
+
   render(toRender);
 }
 
@@ -82,7 +78,7 @@ function render(items) {
   const gridContainer = document.querySelector('.grid-container');
   gridContainer.innerHTML = ``;
 
-  items.forEach(item => {
+  items.forEach((item) => {
     const headlineElement = document.createElement('headline-item');
     headlineElement.setAttribute('class', 'grid-item');
     headlineElement.newsItem = item;
@@ -91,8 +87,8 @@ function render(items) {
 
     headlineElement.addEventListener('click', () => {
       readNews(item);
-    })
-  })
+    });
+  });
 
   document.querySelector('.grid-arrow-left').addEventListener('click', slideLeft);
   document.querySelector('.grid-arrow-right').addEventListener('click', slideRight);
@@ -104,20 +100,20 @@ function slideLeft() {
   } else {
     toRenderIndex.forEach((item, index) => {
       toRenderIndex.splice(index, 1, item - 1);
-    })
+    });
   }
 
   toRender();
 }
 
 function slideRight() {
-  if (toRenderIndex.some(item => item === headlineNewsItems.length - 1)) {
+  if (toRenderIndex.some((item) => item === headlineNewsItems.length - 1)) {
     return;
   } else {
     toRenderIndex.forEach((item, index) => {
       toRenderIndex.splice(index, 1, item + 1);
-    })
+    });
   }
 
-  toRender(); 
+  toRender();
 }

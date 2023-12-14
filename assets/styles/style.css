@@ -961,7 +961,7 @@ main {
     padding-top: 2rem;
     padding-bottom: 2rem;
     margin: auto;
-    width: 500px;
+    width: 400px;
 
     display: flex;
     gap: 0rem;
@@ -990,7 +990,7 @@ main {
   }
   .grid-item {
     position: relative;
-    width: 400px;
+    width: 340px;
     height: 420px;
     overflow: visible;
     visibility: visible;
